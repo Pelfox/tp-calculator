@@ -143,7 +143,7 @@ CMakeUserPresets.json
 *-prefix/
 
 ### Linux ###
-*~
+
 
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
@@ -212,7 +212,6 @@ ui_*.h
 *.qmlc
 *.jsc
 Makefile*
-*build-*
 *.qm
 *.prl
 
