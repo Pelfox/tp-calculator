@@ -24,30 +24,35 @@ include_directories(
 # Define source files
 set(SOURCES
         main.cpp
-        ui/main_window.cpp
-        logic/calculator_engine.cpp
-        views/main_window.ui
+        ui/MainWindow.cpp
+        ui/BasicPage.cpp
+        ui/SettingsPage.cpp
+        views/MainWindow.ui
+        views/BasicPage.ui
+        views/SettingsPage.ui
+        logic/Settings.cpp
+        logic/core/ExpressionParser.cpp
 )
 
 # Group files visually in IDEs
-source_group("views" FILES views/main_window.ui)
+source_group("views" FILES views/MainWindow.ui views/BasicPage.ui views/SettingsPage.ui)
 
 # Create the executable
 add_executable(tp_calculator ${SOURCES})
 
-if(APPLE)
+if (APPLE)
     set_target_properties(tp_calculator PROPERTIES
-        MACOSX_BUNDLE TRUE
-        OUTPUT_NAME "${APP_NAME}"
-        MACOSX_BUNDLE_BUNDLE_NAME "${APP_NAME}"
+            MACOSX_BUNDLE TRUE
+            OUTPUT_NAME "${APP_NAME}"
+            MACOSX_BUNDLE_BUNDLE_NAME "${APP_NAME}"
     )
-else()
+else ()
     set_target_properties(tp_calculator PROPERTIES
-        MACOSX_BUNDLE TRUE
-        OUTPUT_NAME "${APP_NAME}"
-        MACOSX_BUNDLE_BUNDLE_NAME "${APP_NAME}"
+            MACOSX_BUNDLE TRUE
+            OUTPUT_NAME "${APP_NAME}"
+            MACOSX_BUNDLE_BUNDLE_NAME "${APP_NAME}"
     )
-endif()
+endif ()
 
 # Link Qt libraries
 target_link_libraries(tp_calculator
@@ -58,20 +63,20 @@ target_link_libraries(tp_calculator
 
 include(InstallRequiredSystemLibraries)
 
-if(WIN32)
+if (WIN32)
     set(CPACK_GENERATOR "NSIS")
-elseif(APPLE)
+elseif (APPLE)
     set(CPACK_GENERATOR "DragNDrop")
-else()
+else ()
     set(CPACK_GENERATOR "DEB")
-endif()
+endif ()
 
 # Define the install target (install app binary)
-if(APPLE)
+if (APPLE)
     install(TARGETS tp_calculator BUNDLE DESTINATION .)
-else()
+else ()
     install(TARGETS tp_calculator RUNTIME DESTINATION bin)
-endif()
+endif ()
 
 set(CPACK_PACKAGE_NAME "${APP_NAME}")
 set(CPACK_PACKAGE_VENDOR "Aleksey Demchenkov")
