@@ -294,3 +294,14 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,qt,qtcreator,clion+all,c++,cmake
+
+.qt/
+install/
+_CPack_Packages/
+CPackConfig.cmake
+CPackSourceConfig.cmake
+tp_calculator_autogen/
+
+*.exe
+*.dmg
+*.deb
