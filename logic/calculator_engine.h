@@ -3,8 +3,7 @@
 
 #include <QString>
 
-class CalculatorEngine
-{
+class CalculatorEngine {
 public:
     QString evaluate(const QString& expression);
 };
