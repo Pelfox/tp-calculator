@@ -1,106 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SettingsPage</class>
- <widget class="QWidget" name="SettingsPage">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>400</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>SettingsPage</string>
-  </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>401</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
-     <widget class="QLabel" name="pageTitle">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Настройки</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QGroupBox" name="groupBox">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>60</y>
-     <width>151</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="title">
-    <string>Единица измерения угла</string>
-   </property>
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>20</y>
-      <width>151</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
-      <widget class="QRadioButton" name="geometryTypeDegree">
-       <property name="text">
-        <string>Градусы</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0" alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
-      <widget class="QRadioButton" name="geometryTypeRadians">
-       <property name="text">
-        <string>Радианы</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>170</y>
-     <width>101</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Точность ответа</string>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="precisionInput">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>190</y>
-     <width>151</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
- </widget>
- <resources/>
- <connections/>
+    <class>SettingsPage</class>
+    <widget class="QWidget" name="SettingsPage">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>400</width>
+                <height>400</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>SettingsPage</string>
+        </property>
+        <widget class="QWidget" name="horizontalLayoutWidget">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>401</width>
+                    <height>41</height>
+                </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+                <item alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                    <widget class="QLabel" name="pageTitle">
+                        <property name="font">
+                            <font>
+                                <pointsize>14</pointsize>
+                                <bold>true</bold>
+                            </font>
+                        </property>
+                        <property name="text">
+                            <string>Настройки</string>
+                        </property>
+                    </widget>
+                </item>
+            </layout>
+        </widget>
+        <widget class="QGroupBox" name="groupBox">
+            <property name="geometry">
+                <rect>
+                    <x>20</x>
+                    <y>60</y>
+                    <width>151</width>
+                    <height>91</height>
+                </rect>
+            </property>
+            <property name="title">
+                <string>Единица измерения угла</string>
+            </property>
+            <widget class="QWidget" name="gridLayoutWidget">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>20</y>
+                        <width>151</width>
+                        <height>71</height>
+                    </rect>
+                </property>
+                <layout class="QGridLayout" name="gridLayout">
+                    <item row="0" column="0"
+                          alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                        <widget class="QRadioButton" name="geometryTypeDegree">
+                            <property name="text">
+                                <string>Градусы</string>
+                            </property>
+                        </widget>
+                    </item>
+                    <item row="1" column="0"
+                          alignment="Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignVCenter">
+                        <widget class="QRadioButton" name="geometryTypeRadians">
+                            <property name="text">
+                                <string>Радианы</string>
+                            </property>
+                        </widget>
+                    </item>
+                </layout>
+            </widget>
+        </widget>
+        <widget class="QLabel" name="label">
+            <property name="geometry">
+                <rect>
+                    <x>20</x>
+                    <y>170</y>
+                    <width>101</width>
+                    <height>16</height>
+                </rect>
+            </property>
+            <property name="text">
+                <string>Точность ответа</string>
+            </property>
+        </widget>
+        <widget class="QSpinBox" name="precisionInput">
+            <property name="geometry">
+                <rect>
+                    <x>20</x>
+                    <y>190</y>
+                    <width>151</width>
+                    <height>22</height>
+                </rect>
+            </property>
+        </widget>
+    </widget>
+    <resources/>
+    <connections/>
 </ui>

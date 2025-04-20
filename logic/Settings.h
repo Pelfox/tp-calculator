@@ -13,9 +13,11 @@ public:
     Settings() = default;
 
     GeometryFunctionDisplayType getGeometryFunctionDisplayType() const;
+
     void setGeometryFunctionDisplayType(GeometryFunctionDisplayType type);
 
     int getPrecision() const;
+
     void setPrecision(int precision);
 
 private:

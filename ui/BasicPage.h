@@ -5,7 +5,11 @@
 #include "core/ExpressionParser.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class BasicPage; }
+
+namespace Ui {
+    class BasicPage;
+}
+
 QT_END_NAMESPACE
 
 enum OperationType {
@@ -20,19 +24,24 @@ class BasicPage final : public QWidget {
     Q_OBJECT
 
 public:
-    explicit BasicPage(QWidget* parent = nullptr);
+    explicit BasicPage(QWidget *parent = nullptr);
+
     ~BasicPage() override;
 
 public slots:
     void onDigitClicked();
+
     void onOperationButtonClicked();
 
 private slots:
     void on_btnDot_clicked();
+
     void on_btnBackspace_clicked();
 
     void on_btnAC_clicked();
+
     void on_btnSign_clicked();
+
     /* void on_btnPercent_clicked(); */
 
     void on_btnEqual_clicked();
@@ -44,6 +53,7 @@ private:
     ExpressionParser expressionParser;
 
     void connectDigitButtons();
+
     void connectOperationButtons();
 };
 

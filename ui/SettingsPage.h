@@ -4,9 +4,11 @@
 #include "MainWindow.h"
 
 QT_BEGIN_NAMESPACE
+
 namespace Ui {
     class SettingsPage;
 }
+
 QT_END_NAMESPACE
 
 class SettingsPage final : public QWidget {
@@ -14,11 +16,14 @@ class SettingsPage final : public QWidget {
 
 public:
     explicit SettingsPage(QWidget *parent = nullptr);
+
     ~SettingsPage() override;
 
 private slots:
     void onGeometryTypeDegreeToggled(bool checked) const;
+
     void onGeometryTypeRadiansToggled(bool checked) const;
+
     void onPrecisionChanged(int value) const;
 
 private:

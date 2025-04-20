@@ -5,7 +5,7 @@
 
 // TODO: move out this code to a separate function
 void BasicPage::connectDigitButtons() {
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 11; ++i) {
         const QString buttonName = QString("btn%1").arg(i);
         const auto *button = this->findChild<QPushButton *>(buttonName);
 
@@ -18,8 +18,12 @@ void BasicPage::connectDigitButtons() {
 }
 
 void BasicPage::connectOperationButtons() {
-    const std::vector operations = {QString("Divide"), QString("Multiply"), QString("Minus"), QString("Plus")};
-    for (QString operation: operations) {
+    const std::vector operations = {
+        QString("Divide"), QString("Multiply"), QString("Minus"), QString("Plus"),
+        QString("Sin"), QString("Cos"), QString("Tan"), QString("Cotan"),
+        QString("Sec"), QString("Csc"),
+    };
+    for (const QString &operation: operations) {
         const auto *button = this->findChild<QPushButton *>(QString("btn%1").arg(operation));
         if (!button) {
             qCritical() << "Button" << operation << "not found";
@@ -30,7 +34,8 @@ void BasicPage::connectOperationButtons() {
 }
 
 BasicPage::BasicPage(QWidget *parent): QWidget(parent), ui(new Ui::BasicPage),
-                                       mainWindow(dynamic_cast<MainWindow *>(parent)) {
+                                       mainWindow(dynamic_cast<MainWindow *>(parent)),
+                                       expressionParser(mainWindow->settings) {
     ui->setupUi(this);
     this->connectDigitButtons();
     this->connectOperationButtons();
@@ -53,7 +58,11 @@ void BasicPage::onDigitClicked() {
         return;
     }
 
-    const int digit = digitVariant.value<int>();
+    auto digit = digitVariant.value<double>();
+    if (digit == 10) {
+        digit = M_PI;
+    }
+
     const QString part = this->expressionParser.appendDigit(digit);
     this->ui->expression_text->setText(part);
 }
@@ -108,7 +117,7 @@ void BasicPage::on_btnEqual_clicked() {
 
         this->expressionParser.clear();
         this->expressionParser.setLeft(result);
-    } catch (const std::exception& _) {
+    } catch (const std::exception &_) {
         QMessageBox::critical(this->parentWidget(), "Ошибка вычислений", "Деление на 0 запрещено.");
     }
 }
