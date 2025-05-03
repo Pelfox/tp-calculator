@@ -117,6 +117,8 @@ void BasicPage::on_btnEqual_clicked() {
 
         this->expressionParser.clear();
         this->expressionParser.setLeft(result);
+
+        this->mainWindow->database.addEntry(HistoryEntry(this->ui->last_result->text(), result, ""));
     } catch (const std::exception &_) {
         QMessageBox::critical(this->parentWidget(), "Ошибка вычислений", "Деление на 0 запрещено.");
     }

@@ -1,6 +1,7 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include <QFile>
 #include <QSettings>
 
 enum GeometryFunctionDisplayType {
@@ -12,16 +13,18 @@ class Settings {
 public:
     Settings() = default;
 
-    GeometryFunctionDisplayType getGeometryFunctionDisplayType() const;
+    [[nodiscard]] GeometryFunctionDisplayType getGeometryFunctionDisplayType() const;
 
     void setGeometryFunctionDisplayType(GeometryFunctionDisplayType type);
 
-    int getPrecision() const;
+    [[nodiscard]] int getPrecision() const;
 
     void setPrecision(int precision);
 
+    QString getDBFile();
+
 private:
-    QSettings settings = QSettings();
+    QSettings settings = QSettings("MIREA", "TP Calculator");
 };
 
 #endif //SETTINGS_H

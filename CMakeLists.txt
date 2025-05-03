@@ -12,7 +12,7 @@ set(APP_NAME "TP Calculator")
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/views)
 
 # Find Qt6 components
-find_package(Qt6 COMPONENTS Core Gui Widgets REQUIRED)
+find_package(Qt6 COMPONENTS Core Sql Gui Widgets REQUIRED)
 
 # Include directories
 include_directories(
@@ -32,6 +32,13 @@ set(SOURCES
         views/SettingsPage.ui
         logic/Settings.cpp
         logic/core/ExpressionParser.cpp
+        logic/history/HistoryDatabase.cpp
+        logic/history/HistoryDatabase.h
+        logic/history/HistoryEntry.cpp
+        logic/history/HistoryEntry.h
+        ui/historypage.cpp
+        ui/historypage.h
+        views/historypage.ui
 )
 
 # Group files visually in IDEs
@@ -58,6 +65,7 @@ endif ()
 target_link_libraries(tp_calculator
         Qt::Core
         Qt::Gui
+        Qt::Sql
         Qt::Widgets
 )
 

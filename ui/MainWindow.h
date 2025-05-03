@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "Settings.h"
+#include "history/HistoryDatabase.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -18,13 +19,17 @@ class MainWindow final : public QMainWindow {
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-
     ~MainWindow() override;
 
-    Settings settings = Settings();
+    Settings settings;
+    HistoryDatabase database;
+
+private slots:
+    void onTabChanged(int index);
 
 private:
     Ui::MainWindow *ui;
 };
+
 
 #endif //MAIN_WINDOW_H
