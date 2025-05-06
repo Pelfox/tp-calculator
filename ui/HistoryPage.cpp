@@ -28,7 +28,9 @@ void HistoryPage::renderHistory() const {
         auto *label = new QLabel(QString("%1%2").arg(entry.expression).arg(entry.result));
         entryLayout->addWidget(label);
 
-        auto *date = new QLabel(QString("Date: %1").arg(entry.timestamp));
+        QDateTime entryTimestamp = QDateTime::fromString(entry.timestamp,"yyyy-MM-dd HH:mm:ss");
+        entryTimestamp = entryTimestamp.addSecs(3 * 60 * 60);
+        auto *date = new QLabel(QString("%1").arg(entryTimestamp.toString("dd.MM.yyyy, HH:mm:ss")));
         entryLayout->addWidget(date);
 
         layout->addRow(entryLayout);
