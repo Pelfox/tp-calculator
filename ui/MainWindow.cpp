@@ -8,8 +8,8 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-      settings(), // OK: settings default-constructed
-      database(settings.getDBFile()), // now safe to use settings
+      settings(),
+      database(settings.getDBFile()),
       ui(new Ui::MainWindow) {
     this->ui->setupUi(this);
     this->setWindowTitle("TP Calculator");
@@ -23,11 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->tabWidget, &QTabWidget::currentChanged, this, &MainWindow::onTabChanged);
 }
 
-void MainWindow::onTabChanged(int index) {
+void MainWindow::onTabChanged(const int index) const {
     if (index == 1) {
-        HistoryPage *historyPage = dynamic_cast<HistoryPage *>(ui->tabWidget->widget(index));
-        if (historyPage) {
-            historyPage->renderHistory(); // Call a method to fetch and reload data
+        if (const auto *historyPage = dynamic_cast<HistoryPage *>(ui->tabWidget->widget(index))) {
+            historyPage->renderHistory();
         }
     }
 }

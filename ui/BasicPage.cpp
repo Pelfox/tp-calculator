@@ -3,7 +3,6 @@
 
 #include <QMessageBox>
 
-// TODO: move out this code to a separate function
 void BasicPage::connectDigitButtons() {
     for (int i = 0; i < 11; ++i) {
         const QString buttonName = QString("btn%1").arg(i);

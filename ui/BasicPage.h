@@ -42,8 +42,6 @@ private slots:
 
     void on_btnSign_clicked();
 
-    /* void on_btnPercent_clicked(); */
-
     void on_btnEqual_clicked();
 
 private:

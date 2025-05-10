@@ -1,8 +1,6 @@
 #ifndef HISTORYPAGE_H
 #define HISTORYPAGE_H
 
-#include <QWidget>
-
 #include "MainWindow.h"
 
 QT_BEGIN_NAMESPACE
@@ -20,7 +18,6 @@ public:
     explicit HistoryPage(QWidget *parent = nullptr);
 
     void renderHistory() const;
-    void addHistoryEntry(const HistoryEntry &entry);
 
     ~HistoryPage() override;
 

@@ -25,7 +25,7 @@ public:
     HistoryDatabase database;
 
 private slots:
-    void onTabChanged(int index);
+    void onTabChanged(int index) const;
 
 private:
     Ui::MainWindow *ui;
