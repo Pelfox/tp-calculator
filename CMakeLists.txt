@@ -14,6 +14,9 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/views)
 # Find Qt6 components
 find_package(Qt6 COMPONENTS Core Sql Gui Widgets REQUIRED)
 
+# Set application icon
+qt_add_resources(APP_RESOURCES resources.qrc)
+
 # Include directories
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/ui
@@ -45,7 +48,7 @@ set(SOURCES
 source_group("views" FILES views/MainWindow.ui views/BasicPage.ui views/SettingsPage.ui)
 
 # Create the executable
-add_executable(tp_calculator ${SOURCES})
+add_executable(tp_calculator ${SOURCES} ${APP_RESOURCES})
 
 if (APPLE)
     set_target_properties(tp_calculator PROPERTIES
@@ -86,11 +89,22 @@ else ()
     install(TARGETS tp_calculator RUNTIME DESTINATION bin)
 endif ()
 
+# Icon settings
+if (WIN32)
+    target_sources(tp_calculator PRIVATE icon.rc)
+endif()
+
+if (APPLE)
+    set(MACOSX_BUNDLE_ICON_FILE icon.icns)
+    set_source_files_properties(icons/icon.icns PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+    set_target_properties(tp_calculator PROPERTIES MACOSX_BUNDLE TRUE)
+endif()
+
 set(CPACK_PACKAGE_NAME "${APP_NAME}")
 set(CPACK_PACKAGE_VENDOR "Aleksey Demchenkov")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "A simple Qt-based calculator as a term project.")
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
-set(CPACK_PACKAGE_CONTACT "pelfox@younunion.ru")
+set(CPACK_PACKAGE_CONTACT "contact@pelfox.dev")
 
 set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CMAKE_SYSTEM_NAME}")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-Source")
